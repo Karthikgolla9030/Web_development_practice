@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Development</title>
+</head>
+<body>
+  <h1>Tables</h1>
+  <table border="1" cellspacing="0">
+    <caption style="caption-side:top; font-weight: bold; padding: 8px;">Student Data</caption>
+    <thead>
+      <tr><th>Name</th>
+      <th>Age</th>
+      <th>Country</th></tr>
+    </thead>
+
+    <tbody>
+      <tr><td>Karthik</td>
+        <td>20</td>
+        <td>India</td>
+      </tr>
+      <tr><td>Sukeerth</td>
+        <td>20</td>
+        <td>India</td>
+      </tr>
+      <tr><td>Nandheeswar</td>
+        <td>20</td>
+        <td>India</td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+
+    </tfoot>
+  
+  </table>
+  <br>
+  <br>
+  <table border="1" cellspacing="0">
+    <caption style="font-weight: bold; padding: 6px;">Using rowspan and colspan</caption>
+    <tr>
+      <th rowspan="2">Name</th>
+      <th colspan="2">Scores</th>
+    </tr>
+    <tr>
+      <th>Math</th>
+      <th>Science</th>
+    </tr>
+    <tr>
+      <td>Alice</td>
+      <td>85</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <td>Bob</td>
+      <td colspan="2">Absent</td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <h1>Forms</h1>
+  <form>
+    <table>
+      <tr><td><label for="name">Name: </label></td>
+      <td><input id="name" type="name"></td></tr>
+      
+      <tr><td><label for="email">Email: </label></td>
+      <td><input id="email" type="email"></td></tr>
+      
+      <tr><td><label for="pass">Password: </label></td>
+      <td><input id="pass" type="password"></td></tr>
+      
+      <tr><td></td><td><input id="check" type="checkbox">
+      <label for="check">Remember me </label></td></tr>
+    
+      <tr><td><label name="gender">Gender: </label></td>
+      <td><input id="male" type="radio" name="gender">
+      <label for="male">Male</label>
+      <input id="female" type="radio" name="gender">
+      <label for="female">Female</label></td></tr>
+      
+      <tr><td><label for="country">Choose a country: </label></td>
+      <td><select id="country" name="country">
+        <option value="india">India</option>
+        <option value="us">US</option>
+        <option value="japan">Japan</option>
+      </select></td></tr>
+     
+      <tr><td><label for="feedback">Feedback: </label></td>
+      <td><textarea id="feedback" rows="2" cols="20"></textarea></td></tr>
+      
+      <tr><td><input value="submit" type="submit"></td></tr>
+    </table>
+  </form>
+</body>
+</html>
