@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Tasks Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+  <style>
+    p {
+      color: blue;
+      font-size: 16px;
+    }
+
+    .highlight {
+      background-color: yellow;
+    }
+
+    #main-title {
+      color: red;
+      text-decoration: underline;
+      text-shadow: 1px 1px 2px lightgray; /* text-shadow for glowing effect */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    h1, h2 {
+      font-family: Arial, sans-serif;
+      color: darkgreen;
+    }
+
+   
+    .named-color {
+      color: crimson;
+    }
+
+    .hex-color-bg {
+      background-color: #3498db;
+      padding: 10px;
+      color: white;
+    }
+
+    .rgb-button {
+      background-color: rgb(52, 152, 219);
+      color: rgb(255, 255, 255);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .rgba-overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .hsl-paragraph {
+      color: hsl(200, 100%, 50%);
+    }
+
+    .hsla-box {
+      background-color: hsla(120, 100%, 25%, 0.7);
+      color: white;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+   
+    a {
+      color: green;
+      text-decoration: underline;
+    }
+
+    a.no-underline {
+      text-decoration: none;
+    }
+
+    .outfit-section {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .font-size-18 {
+      font-size: 18px;
+    }
+
+    .important-text {
+      font-weight: bold;
+    }
+
+    .center-text {
+      text-align: center;
+    }
+
+    .uppercase-heading {
+      text-transform: uppercase;
+    }
+
+    
+    .fixed-box {
+      width: 300px;
+      height: 150px;
+      background-color: lightgray;
+    }
+
+    .padded-div {
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    .directional-padding {
+      padding: 10px 30px;
+      background-color: #e0e0e0;
+    }
+
+    .bordered-box {
+      border: 2px solid black;
+      padding: 10px;
+    }
+
+    .rounded-box {
+      border: 1px solid gray;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .margin-image {
+      margin: 20px;
+      width: 100px;
+      height: auto;
+    }
+
+    .centered-box {
+      width: 200px;
+      margin: 0 auto;
+      background-color: #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .shadow-card {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 15px;
+      border-radius: 10px;
+      background: white;
+      max-width: 300px;
+      margin: 20px auto;
+    }
+
+    .responsive-box {
+      width: 50%;
+      max-width: 600px;
+      background-color: #fafafa;
+      padding: 20px;
+      border: 1px solid #ccc;
+      margin: 10px auto;
+    }
+
+    .card {
+      font-family: 'Outfit', sans-serif;
+      padding: 20px;
+      margin: 20px auto;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+
+  <!--Selectors -->
+  <h1 id="main-title">Main Title with ID Selector</h1>
+  <h2>Subheading with Grouping Selector</h2>
+  <p>This is a paragraph styled with element selector.</p>
+  <p class="highlight">This paragraph has a yellow background using class selector.</p>
+
+  <!--Colors -->
+  <h2 class="named-color">This heading uses a named color (crimson)</h2>
+
+  <div class="hex-color-bg">This div has a background with hex color</div>
+  <br>
+  <button class="rgb-button">RGB Styled Button</button>
+
+  <div class="rgba-overlay">This is a semi-transparent overlay using rgba</div>
+
+  <p class="hsl-paragraph">This paragraph uses HSL color</p>
+
+  <div class="hsla-box">This box has HSLA background color</div>
+
+  <!--Text -->
+  <a href="">This is a green link (text color)</a><br>
+  <a href="" class="no-underline">This link has no underline</a>
+
+  <div class="outfit-section">
+    <p>This section uses the Outfit font</p>
+  </div>
+
+  <p class="font-size-18">This paragraph has 18px font size</p>
+
+  <p class="important-text">This text is bold using class</p>
+
+  <div class="center-text">This div's text is center aligned</div>
+
+  <h2 class="uppercase-heading">this heading will appear uppercase</h2>
+
+  <!--Box Model -->
+  <div class="fixed-box">Fixed Width & Height Box</div>
+
+  <div class="padded-div">Box with 20px padding</div>
+
+  <div class="directional-padding">10px top-bottom, 30px left-right padding</div>
+
+  <div class="bordered-box">Box with 2px solid black border</div>
+
+  <div class="rounded-box">Box with rounded corners (10px)</div>
+
+  <img src="rock-emoji.png" alt="Placeholder" class="margin-image">
+
+  <div class="centered-box">This box is centered with margin: 0 auto</div>
+
+  <div class="shadow-card">This card has a soft shadow around it</div>
+
+  <div class="responsive-box">Responsive box using % width and max-width</div>
+
+  <div class="card">
+    <h3>Card Title</h3>
+    <p>This is a styled card with padding, margin, border, shadow, and a custom font.</p>
+  </div>
+
+</body>
+</html>
