@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Full CSS Practice</title>
+
+  <style>
+    :root {
+      --primary-color: blue;
+      --secondary-color: orange;
+      --bg-color: white;
+      --text-color: black;
+    }
+    body.dark-mode {
+      --bg-color: black;
+      --text-color: white;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* 1. BACKGROUNDS */
+    .background-section {
+      background-color: lightblue;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .background-image {
+      background-image: url(bg.jpg);
+      background-position: center right;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 200px;
+      margin-bottom: 20px;
+    }
+
+    /* 2. LAYOUT */
+    .block-box {
+      display: block;
+      background: lightcoral;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .inline-box {
+      display: inline;
+      background: lightseagreen;
+      padding: 10px;
+    }
+
+    .relative-parent {
+      position: relative;
+      background: #943939;
+      height: 150px;
+      margin-bottom: 20px;
+    }
+    .absolute-child {
+      position:absolute;
+      bottom: 10px;
+      right: 10px;
+      background: red;
+      padding: 5px;
+    }
+
+    .fixed-navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: black;
+      color: white;
+      padding: 10px;
+      z-index: 999;
+    }
+    .content {
+      margin-top: 60px;
+    }
+
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      background: yellow;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .float-img {
+      float: left;
+      margin-right: 10px;
+    }
+
+    .zindex-container {
+      position: relative;
+    }
+    .box1 {
+      width: 100px;
+      height: 100px;
+      background: lightblue;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .box2 {
+      width: 100px;
+      height: 100px;
+      background: pink;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 2;
+    }
+
+    .flex-navbar {
+      display: flex;
+      background: black;
+      list-style: none;
+      padding: 0;
+      color: white;
+    }
+    .flex-navbar li {
+      padding: 10px 20px;
+      color: white;
+    }
+
+    /* 3. GRID */
+    .grid-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .grid-gallery div {
+      background: lightgray;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* 4. OVERFLOW */
+    .overflow-scroll {
+      height: 150px;
+      width: 200px;
+      overflow-y: scroll;
+      border: 1px solid black;
+      margin-bottom: 20px;
+    }
+
+    /* 5. PSEUDO-CLASSES */
+    button:hover {
+      background: green;
+    }
+
+    input:focus {
+      border: 2px solid red;
+    }
+
+    button:active {
+      background: red;
+    }
+
+    a:visited {
+      color: purple;
+    }
+
+    li:nth-child(2n) {
+      background: lightyellow;
+    }
+
+    /* 6. PSEUDO-ELEMENTS */
+    h2::before {
+      content: "⭐ ";
+    }
+
+    p.readmore::after {
+      content: " Read more...";
+      color: blue;
+    }
+
+    p::first-letter {
+      font-size: 2em;
+      font-weight: bold;
+    }
+
+    p::first-line {
+      color: red;
+    }
+
+    /* 7. TRANSITIONS & ANIMATIONS */
+    .transition-btn {
+      background: blue;
+      color: white;
+      padding: 10px 20px;
+      transition: background 0.5s;
+    }
+    .transition-btn:hover {
+      background: green;
+    }
+
+    .moving-box {
+      width: 50px;
+      height: 50px;
+      background: red;
+      animation: move 3s infinite;
+    }
+    @keyframes move {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(300px); }
+    }
+
+    .fade-box {
+      width: 100px;
+      height: 100px;
+      background: blue;
+      animation: fade 2s ease 3s forwards;
+    }
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .glow-btn {
+      padding: 10px 20px;
+      background: purple;
+      color: white;
+      animation: glow 1.5s infinite alternate;
+    }
+    @keyframes glow {
+      from { box-shadow: 0 0 5px purple; }
+      to { box-shadow: 0 0 20px pink; }
+    }
+
+    
+    @media (max-width: 768px) {
+      body {
+        font-size: 14px;
+        background: lightgray;
+      }
+      .flex-navbar {
+        flex-direction: column;
+      }
+    }
+
+    .responsive-box {
+      width: 80vw;
+      height: 50vh;
+      background: lightblue;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="fixed-navbar">Fixed Navbar</div>
+
+  <div class="content">
+
+    <!-- 1. Backgrounds -->
+    <section class="background-section">
+      Light Blue Background Section
+    </section>
+
+    <div class="background-image"></div>
+
+    <!-- 2. Layout -->
+    <div class="block-box">Block Box</div>
+    <div class="inline-box">Inline Box</div>
+
+    <div class="relative-parent">
+      Relative Parent
+      <div class="absolute-child">Absolute Child</div>
+    </div>
+
+    <div class="sticky-header">Sticky Header</div>
+
+    <div>
+      <img src="bg.jpg" class="float-img">
+      <p>Floating image on the left with text wrapped around. This text will move beside the floated image.</p>
+    </div>
+
+    <div class="zindex-container">
+      <div class="box1"></div>
+      <div class="box2"></div>
+    </div>
+
+    <ul class="flex-navbar">
+      <li>Home</li>
+      <li>About</li>
+      <li>Services</li>
+      <li>Contact</li>
+    </ul>
+
+    <!-- 3. Grid -->
+    <div class="grid-gallery">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </div>
+
+    <!-- 4. Overflow -->
+    <div class="overflow-scroll">
+      <p>Lots of overflowing text here...<br>More lines<br>And more<br>Keep scrolling<br>Almost there<br>End of content!</p>
+    </div>
+
+    <!-- 5. Pseudo-Classes -->
+    <button>Hover and Click me</button>
+    <br><br>
+    <input type="text" placeholder="Focus me">
+    <br><br>
+    <a href="https://example.com" target="_blank">Visited Link</a>
+    <br><br>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+    </ul>
+
+    <!-- 6. Pseudo-elements -->
+    <h2>Heading with Star</h2>
+    <p class="readmore">This paragraph has a read more after it.</p>
+
+    <!-- 7. Transitions & Animations -->
+    <button class="transition-btn">Hover for Smooth Transition</button>
+    <br><br>
+
+    <div class="moving-box"></div>
+    <br><br>
+
+    <div class="fade-box"></div>
+    <br><br>
+
+    <button class="glow-btn">Glowing Button</button>
+    <br><br>
+
+    <!-- 8. Responsive Design -->
+    <div class="responsive-box">Responsive Box</div>
+
+    <!-- 9. Theme Toggle -->
+    <button onclick="document.body.classList.toggle('dark-mode')">Toggle Light/Dark Theme</button>
+  </div>
+
+</body>
+</html>
