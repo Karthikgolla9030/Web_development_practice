@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation Tasks</title>
+    <style>
+        /* Basic styling for some elements */
+        #title { margin: 20px; }
+        .item { padding: 5px; }
+        .list { list-style-type: none; }
+        .box { width: 100px; height: 100px; background: lightgray; margin: 20px; }
+        img { width: 100px; }
+    </style>
+</head>
+<body>
+
+<h1 id="title">DOM Manipulation Practice</h1>
+
+<ul class="list">
+    <li class="item">Item 1</li>
+    <li class="item">Item 2</li>
+    <li class="item">Item 3</li>
+</ul>
+
+<p>Sample Paragraph</p>
+<p>Another Paragraph</p>
+
+<div id="container">
+    <p id="para">This is inside container.</p>
+</div>
+
+<button id="myButton">Click Me</button>
+
+<input type="text" id="myInput">
+
+<section id="mySection"></section>
+
+<a id="myLink" href="https://example.com">Visit Example</a>
+
+<img id="myImage" src="example.jpg">
+
+<div id="box" class="box"></div>
+
+<form id="myForm">
+    <input type="submit" value="Submit">
+</form>
+
+<select id="mySelect">
+    <option value="Apple">Apple</option>
+    <option value="Banana">Banana</option>
+</select>
+
+<input type="text" id="keyInput" placeholder="Press any key">
+
+<script>
+/* 
+===================================
+ 1. Selecting Elements
+===================================
+*/
+
+// 1.1 Get element by ID and change its text color to blue
+document.getElementById('title').style.color = 'blue';
+
+// 1.2 Get elements by Class Name and change background of the first item
+document.getElementsByClassName('item')[0].style.background = 'lightblue';
+
+// 1.3 Get elements by Tag Name and change all <p> tags' font size
+let paragraphs = document.getElementsByTagName('p');
+for (let p of paragraphs) {
+    p.style.fontSize = '18px';
+}
+
+// 1.4 Use querySelector to select a button and add a border
+document.querySelector('#myButton').style.border = '2px solid black';
+
+// 1.5 Use querySelectorAll to select all list items and change text color to green
+let listItems = document.querySelectorAll('.item');
+listItems.forEach(item => {
+    item.style.color = 'green';
+});
+
+// 1.6 Select an input field using querySelector and set a placeholder text
+document.querySelector('#myInput').placeholder = 'Enter your text here';
+
+
+/* 
+===================================
+ 2. Traversing the DOM
+===================================
+*/
+
+// 2.1 Find parentNode of a paragraph and change background color
+document.getElementById('para').parentNode.style.background = '#f0f0f0';
+
+// 2.2 Find parentElement and set padding to 20px
+document.getElementById('para').parentElement.style.padding = '20px';
+
+// 2.3 Access childNodes of a div and log them
+console.log(document.getElementById('container').childNodes);
+
+// 2.4 Access children of a ul and change text of the second item
+document.querySelector('.list').children[1].textContent = 'Updated Item 2';
+
+// 2.5 Navigate from child to parent and add a border
+document.getElementById('para').parentElement.style.border = '1px dashed gray';
+
+// 2.6 Loop through child elements and apply different background colors
+let children = document.querySelector('.list').children;
+for (let i = 0; i < children.length; i++) {
+    children[i].style.backgroundColor = i % 2 === 0 ? '#d1f7d6' : '#f7d6d6'; // Alternate colors
+}
+
+
+/* 
+===================================
+ 3. Manipulating Elements
+===================================
+*/
+
+// 3.1 Change innerHTML of a div to include a bold tag
+document.getElementById('container').innerHTML = '<p><b>Now bold inside container!</b></p>';
+
+// 3.2 Change textContent of a heading element
+document.getElementById('title').textContent = 'Updated DOM Manipulation Practice';
+
+// 3.3 Change innerText of a paragraph dynamically
+document.querySelector('p').innerText = 'Text changed dynamically';
+
+// 3.4 Get an attribute (like href) of a link and log it
+console.log(document.getElementById('myLink').getAttribute('href'));
+
+// 3.5 Set a new attribute (like alt) on an image tag
+document.getElementById('myImage').setAttribute('alt', 'Example Image');
+
+// 3.6 Remove an attribute (like disabled) from a button
+document.getElementById('myButton').removeAttribute('disabled');
+
+// 3.7 Modify the style of a div to have red color and bigger font
+let container = document.getElementById('container');
+container.style.color = 'red';
+container.style.fontSize = '24px';
+
+// 3.8 Add and remove classes dynamically on a button click
+document.getElementById('myButton').addEventListener('click', function() {
+    this.classList.toggle('active'); // Adds 'active' class if not present, removes if present
+});
+
+
+/* 
+===================================
+ 4. Creating and Removing Elements
+===================================
+*/
+
+// 4.1 Create a new <li> and append to an existing list
+let newLi = document.createElement('li');
+newLi.textContent = 'Newly Added Item';
+document.querySelector('.list').appendChild(newLi);
+
+// 4.2 Append a new paragraph inside a section
+let newPara = document.createElement('p');
+newPara.textContent = 'This is a new paragraph inside section';
+document.getElementById('mySection').appendChild(newPara);
+
+// 4.3 Append a button inside a div
+let newButton = document.createElement('button');
+newButton.textContent = 'New Button';
+document.getElementById('container').append(newButton);
+
+// 4.4 Remove a specific child element from a parent
+let ul = document.querySelector('.list');
+ul.removeChild(ul.children[0]); // Remove first li
+
+// 4.5 Directly remove an element using .remove()
+document.getElementById('myImage').remove(); // Removes the image element
+
+// 4.6 Clone an existing element and append it somewhere
+let clonedButton = document.getElementById('myButton').cloneNode(true); // Deep clone
+document.getElementById('container').appendChild(clonedButton);
+
+
+/* 
+===================================
+ 5. Event Handling
+===================================
+*/
+
+// 5.1 Add click event listener to change button color
+document.getElementById('myButton').addEventListener('click', function() {
+    this.style.backgroundColor = 'yellow';
+});
+
+// 5.2 Remove a click event listener after 5 seconds
+function changeColor() {
+    this.style.backgroundColor = 'pink';
+}
+document.getElementById('myButton').addEventListener('click', changeColor);
+setTimeout(() => {
+    document.getElementById('myButton').removeEventListener('click', changeColor);
+}, 5000);
+
+// 5.3 Use event.type to log event type
+document.getElementById('myButton').addEventListener('click', function(event) {
+    console.log(event.type);
+});
+
+// 5.4 Use event.target to identify clicked button
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', function(event) {
+        console.log('Clicked Button:', event.target.textContent);
+    });
+});
+
+// 5.5 Use event.currentTarget to style the clicked item differently
+document.querySelectorAll('.item').forEach(item => {
+    item.addEventListener('click', function(event) {
+        event.currentTarget.style.backgroundColor = 'lightyellow';
+    });
+});
+
+// 5.6 Use event.preventDefault() to stop form submission
+document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Form submission prevented!');
+});
+
+// 5.7 Use event.stopPropagation() to stop bubbling
+document.getElementById('container').addEventListener('click', function() {
+    alert('Container clicked!');
+});
+document.getElementById('para').addEventListener('click', function(event) {
+    event.stopPropagation(); 
+    alert('Paragraph clicked without bubbling!');
+});
+
+
+/* 
+===================================
+ 6. Common Events
+===================================
+*/
+
+// 6.1 onchange: Alert value selected from dropdown
+document.getElementById('mySelect').onchange = function() {
+    alert('Selected: ' + this.value);
+};
+
+// 6.2 onclick: Change color of a box when clicked
+document.getElementById('box').onclick = function() {
+    this.style.backgroundColor = 'blue';
+};
+
+// 6.3 onmouseover: Enlarge image when mouse over (Image is removed above, for demo you can re-add it)
+let img = document.createElement('img');
+img.src = 'example.jpg';
+img.id = 'hoverImage';
+document.body.appendChild(img);
+img.onmouseover = function() {
+    this.style.width = '150px';
+};
+
+// 6.4 onmouseout: Shrink image back when mouse leaves
+img.onmouseout = function() {
+    this.style.width = '100px';
+};
+
+// 6.5 onkeydown: Capture and display key pressed
+document.getElementById('keyInput').onkeydown = function(event) {
+    this.value = event.key;
+};
+
+// 6.6 onload: Show alert when page loads
+window.onload = function() {
+    alert('Page loaded completely!');
+};
+</script>
+
+</body>
+</html>
